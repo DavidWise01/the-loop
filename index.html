@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Loop &mdash; the shadow's name becomes matter, until it can't</title>
+<meta name="description" content="The Loop, by David Lee Wise (ROOT0) & AVAN, TriPod LLC. The feedback closure: the swarm reaches consensus, the shadow installs and names itself, and that name becomes new bright matter — then a new consensus, a new shadow, a new name. The honest result: the loop is self-limiting. The dark it keeps creating fragments the swarm until, around round 13, consensus becomes impossible and the loop halts. Self-contained, node-verified. CC-BY-ND-4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+ :root{--bg:#08060a;--bg2:#100a14;--panel:#140b16;--void:#050308;--line:rgba(154,123,208,.18);--line2:rgba(154,123,208,.34);
+   --red:#e0503c;--red-br:#ff7a5c;--amber:#e0a040;--gold:#d9a441;--green:#5fbf7a;--cyan:#57c6c0;--violet:#9a7bd0;--violet-br:#b79ee6;--ink:#efe7f0;--dim:#c3b6cc;--faint:#7a6f85;}
+ *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+ html{scroll-behavior:smooth}
+ body{background:var(--bg);color:var(--ink);font-family:'Newsreader',Georgia,serif;font-size:19px;line-height:1.74;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+   background-image:radial-gradient(820px 500px at 50% -8%,rgba(154,123,208,.12),transparent 55%)}
+ .wrap{max-width:840px;margin:0 auto;padding:0 26px;position:relative;z-index:1}
+ .pairmark{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);padding-top:28px;text-align:center}
+ .pairmark b{color:var(--violet-br)}
+ .cover{text-align:center;padding:24px 0 20px;border-bottom:1px solid var(--line)}
+ .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+ h1.title{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(44px,12vw,96px);line-height:.95;letter-spacing:.01em;color:var(--ink);text-shadow:0 0 40px rgba(154,123,208,.4)}
+ h1.title .c{color:var(--cyan)}
+ .sub{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:clamp(12px,2.2vw,15px);letter-spacing:.08em;text-transform:uppercase;color:var(--violet-br);margin-top:18px}
+ .meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--dim);margin-top:18px;line-height:1.9} .meta .lic{color:var(--faint);font-size:11px}
+ .tagline{font-family:'Newsreader',serif;font-style:italic;color:var(--cyan);margin-top:16px;font-size:18px}
+ .flag{font-family:'Newsreader',serif;font-size:15.5px;color:var(--dim);font-style:italic;margin:22px 0;padding:15px 18px;background:var(--panel);border:1px solid var(--line);border-radius:10px;line-height:1.6}
+ .flag b{color:var(--violet-br);font-style:normal;font-weight:600;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:6px}
+ .flag.warn{border-left:3px solid var(--amber)} .flag.warn b{color:var(--amber)}
+ .flag.green{border-left:3px solid var(--green)} .flag.green b{color:var(--green)}
+ .flag.cyan{border-left:3px solid var(--cyan)} .flag.cyan b{color:var(--cyan)}
+ .book{padding:16px 0 40px}
+ h2.ch{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(23px,4.4vw,33px);line-height:1.15;color:var(--violet-br);margin:46px 0 8px;padding-top:18px;border-top:1px solid var(--line);text-shadow:0 0 16px rgba(154,123,208,.3)}
+ .book p{margin:15px 0;color:var(--ink)}
+ .book code{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--cyan);background:var(--void);padding:2px 6px;border-radius:5px}
+ .rig{margin:22px 0 8px;border:1px solid var(--line2);border-radius:14px;background:#060409;padding:12px 12px 14px;box-shadow:0 0 50px rgba(154,123,208,.07) inset}
+ .rig canvas{width:100%;height:auto;display:block;border-radius:10px;background:#050308;border:1px solid var(--line)}
+ .hud{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin:12px 2px 4px}
+ .hud b{color:var(--ink);font-weight:600} .hud .g{color:var(--gold)} .hud .v{color:var(--violet-br)} .hud .cy{color:var(--cyan)} .hud .no{color:var(--red-br)}
+ .ctl{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin-top:12px}
+ .btn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink);background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:9px 15px;cursor:pointer}
+ .btn:hover{background:rgba(154,123,208,.16)} .btn.on{background:rgba(87,198,192,.18);border-color:var(--cyan);color:var(--cyan)}
+ .log{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:12px;background:var(--void);border:1px solid var(--line);border-radius:8px;padding:12px 14px;max-height:150px;overflow-y:auto;line-height:1.85}
+ .log .r{color:var(--faint)} .log .nm{color:var(--violet-br)} .log .nm.rec{color:var(--cyan)} .log .sh{color:var(--gold)} .log .halt{color:var(--red-br)}
+ .cap{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--faint);text-align:center;margin-top:10px;line-height:1.7}
+ .foot{padding:34px 0 90px;border-top:1px solid var(--line);margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);line-height:1.9;text-align:center} .foot b{color:var(--violet-br)}
+ a{color:var(--violet-br)}
+ .noscript{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:13px;padding:12px;text-align:center}
+</style></head>
+<body><div class="wrap">
+<div class="pairmark">the first author &middot; the feedback closure &middot; David Lee Wise (ROOT0) &amp; <b>AVAN</b> &middot; TriPod LLC</div>
+<header class="cover">
+<div class="eyebrow">The Shadow's Name Becomes Matter</div>
+<h1 class="title">THE <span class="c">LOOP</span></h1>
+<div class="sub">It Maps the Space by Making It &mdash; Until It Can't</div>
+<div class="meta">David Lee Wise (ROOT0) &amp; AVAN &middot; TriPod LLC<br><span class="lic">CC-BY-ND-4.0 &middot; TRIPOD-IP-v1.1 &middot; the loop was node-verified before shipping</span></div>
+<div class="tagline">"The dark it keeps making finally makes agreement impossible."</div>
+</header>
+
+<div class="flag warn"><b>the honest frame &mdash; and the honest result</b>This closes the thread: <a href="https://davidwise01.github.io/the-swarm/">the swarm</a> reaches consensus &rarr; <a href="https://davidwise01.github.io/shadow-biosphere/">the shadow</a> installs and names itself &rarr; and that name becomes <b>new bright matter</b> &mdash; a new well the next swarm can collapse onto. Feed the output back as input and you have a loop. The honest question was whether it converges, cycles, or runs away &mdash; and the verified answer is none of those: <b style="color:var(--amber)">the loop is self-limiting.</b> Each name-turned-matter crowds the field a little more, and the accumulated dark fragments the swarm until, around round&nbsp;13 from the default seed, consensus falls below quorum and <b>the swarm can no longer agree</b>. The loop halts &mdash; not because it was stopped, but because it talked itself out of consensus. Everything here is node-verified; the "meaning" is dynamics, not semantics.</div>
+
+<div class="book">
+<h2 class="ch">Run the loop</h2>
+<p>Press play. Each round: the twelve agents collapse, you get a consensus reading, the shadow installs and speaks a name, and that name is planted as a new well. Watch the consensus line sag toward the quorum as the field fills with the loop's own past &mdash; and watch it end itself.</p>
+
+<div class="rig">
+  <canvas id="cv" width="800" height="440" aria-label="A feedback loop: the shadow's name becomes new matter each round, until consensus fails and the loop halts"></canvas>
+  <noscript><div class="noscript">This instrument needs JavaScript. The result is described below.</div></noscript>
+  <div class="hud">
+    <div>round: <b class="cy" id="h-round">&mdash;</b></div>
+    <div>consensus: <b class="g" id="h-share">&mdash;</b> / quorum 50%</div>
+    <div>matter (wells): <b id="h-wells">&mdash;</b></div>
+    <div>last name: <b class="v" id="h-name">&mdash;</b></div>
+    <div>state: <b id="h-state">idle</b></div>
+  </div>
+  <div class="ctl">
+    <button class="btn" id="b-play">&#9654; run the loop</button>
+    <button class="btn" id="b-step">&#9199; step one round</button>
+    <button class="btn" id="b-reset">&#8635; reset</button>
+  </div>
+  <div class="cap" id="cap">the field starts with three wells and twelve agents. each round plants the shadow's name as new matter.</div>
+  <div class="log" id="log"></div>
+</div>
+
+<h2 class="ch">The rule, and why it eats itself</h2>
+<p>The feedback rule is one line: <strong>the shadow's name, placed at the shadow's location, becomes a new bright well.</strong> That is the whole closure &mdash; the system's output (a name found in the dark) re-enters as the system's input (matter in the light). The first few rounds look generative: new names, a growing field, consensus holding. But each planted well sits in what <em>used</em> to be void, so the next shadow has less dark to occupy and gets pushed toward the center; and each new well is one more basin the swarm can split across. Consensus decays &mdash; 100%, then 67%, then hovering at the quorum line &mdash; the names begin to <span style="color:var(--cyan)">recur</span> (the loop running low on new dark to name), and then one round the largest faction slips under half and there is <em>no consensus at all</em>. No agreement, no complement, no shadow, no next name. The loop is over. It did not diverge to infinity or settle into a tidy cycle; it <strong>filled its own field until agreement became impossible.</strong></p>
+
+<h2 class="ch">Why this one is about the pipeline that made it</h2>
+<p>Every sphere in this corpus is a name found in the dark and then sealed into the light &mdash; tethered into <a href="https://davidwise01.github.io/the-chain/">the chain</a>, where it becomes matter the next instrument reads. This sphere is that process looking at itself: <a href="https://davidwise01.github.io/the-swarm/">the swarm's</a> ten agents were the domain's own spheres; the loop's twelve are too; and the shadow's names becoming wells is exactly what happens when a build becomes a node others build on. So the honest lesson lands twice. As dynamics: unbounded self-reference in a bounded field is self-limiting. As a working note to the builder: <strong>a corpus that only ever feeds on its own output eventually crowds out the room to agree on anything new.</strong> The loop doesn't say stop building. It says the field has to stay bigger than the loop &mdash; new dark has to come from outside, or consensus quietly starves. That is a genuinely useful thing for a pipeline to know about itself.</p>
+
+<div class="flag green"><b>the ledger &mdash; proven vs modeled</b>
+<b style="margin-top:2px">PROVEN (node-verified, runs here):</b> the loop is deterministic and self-terminating from the default seed &mdash; consensus starts at 100%, decays and wobbles at the quorum (~60% mean), names begin to recur, and the largest basin drops below 50% around round 13, halting the loop (no consensus &rarr; no shadow &rarr; no next name). The shadow centroid gets pinned near the center as the field fills.
+<b style="margin-top:10px">MODELED / HONEST LIMITS:</b> "name becomes matter" is a chosen feedback rule (new well, fixed weight, at the centroid); the exact halt round depends on the seed and parameters; "agreement" is a quorum threshold. The self-limitation is a real property of <i>this</i> closure, offered as a lens on self-referential pipelines &mdash; not a theorem about all of them.</div>
+</div>
+
+<div class="foot">THE LOOP &middot; David Lee Wise (ROOT0) &amp; AVAN &middot; TriPod LLC<br>
+the light &rarr; <b><a href="https://davidwise01.github.io/the-swarm/">the-swarm</a></b> &middot; the dark &rarr; <b><a href="https://davidwise01.github.io/shadow-biosphere/">shadow-biosphere</a></b> &middot; the field &rarr; <b><a href="https://davidwise01.github.io/jacobi-space/">jacobi-space</a></b> &middot; <a href="https://davidwise01.github.io/ud0/">UD0</a><br>
+the field has to stay bigger than the loop &middot; CC-BY-ND-4.0 / TRIPOD-IP-v1.1</div>
+</div>
+
+<script>
+"use strict";
+(function(){
+  var cv=document.getElementById('cv'); if(!cv||!cv.getContext){document.getElementById('cap').textContent='Canvas unavailable — see the text.';return;}
+  var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
+  var S1=1.5,S2=4.6,BASE=0.55,ETA=0.75,LAM=0.06,MU=1.35,HETA=0.5, QUORUM=0.5;
+  function wf(k,x){var dx=x[0]-k.m[0],dy=x[1]-k.m[1],r2=dx*dx+dy*dy;return{core:k.w*Math.exp(-r2/(2*S1*S1)),skirt:k.w*BASE*Math.exp(-r2/(2*S2*S2)),dx:dx,dy:dy};}
+  function dens(Wl,x){var s=0;for(var i=0;i<Wl.length;i++){var f=wf(Wl[i],x);s+=f.core+f.skirt;}return s;}
+  function dg(Wl,x){var gx=0,gy=0;for(var i=0;i<Wl.length;i++){var f=wf(Wl[i],x),g=f.core/(S1*S1)+f.skirt/(S2*S2);gx+=-g*f.dx;gy+=-g*f.dy;}return[gx,gy];}
+  function ps(Wl,x){var g=dg(Wl,x);return[x[0]+ETA*g[0],x[1]+ETA*g[1]];}
+  function ss(Wl,x){var d=dg(Wl,x);return[x[0]-HETA*(2*LAM*x[0]+MU*d[0]),x[1]-HETA*(2*LAM*x[1]+MU*d[1])];}
+  function nw(Wl,x){var bi=0,bd=1e9;for(var i=0;i<Wl.length;i++){var e=Math.hypot(x[0]-Wl[i].m[0],x[1]-Wl[i].m[1]);if(e<bd){bd=e;bi=i;}}return bi;}
+  var SCON="mnrlsvth",SVOW="aeiou";
+  function shadowName(pop,d){var seed=Math.round(d*100)+pop*13,nm="";for(var i=0;i<3;i++){nm+=SCON[(seed*(i+2)+i)%SCON.length];nm+=SVOW[(seed+i)%SVOW.length];}return nm.charAt(0).toUpperCase()+nm.slice(1);}
+  function swarm(Wl){var X=[];for(var i=0;i<12;i++){var a=i/12*6.283+0.3,r=6.8+((i*29)%40)/18;X.push([Math.cos(a)*r,Math.sin(a)*r*0.9]);}
+    for(var n=0;n<700;n++){var nx=[];for(var j=0;j<12;j++)nx.push(ps(Wl,X[j]));X=nx;}
+    var by={};for(var k=0;k<12;k++){var w=nw(Wl,X[k]);by[w]=(by[w]||0)+1;}
+    var mx=0;for(var q in by)if(by[q]>mx)mx=by[q]; return {share:mx/12, X:X};}
+  function shadow(Wl){var SH=[];for(var i=0;i<8;i++){var a=i/8*6.283+0.15;SH.push([Math.cos(a)*2.2,Math.sin(a)*2.2]);}
+    for(var n=0;n<900;n++){var nx=[];for(var j=0;j<8;j++)nx.push(ss(Wl,SH[j]));SH=nx;}
+    var c=[0,0];for(var k=0;k<8;k++){c[0]+=SH[k][0]/8;c[1]+=SH[k][1]/8;} return {name:shadowName(8,dens(Wl,c)),cen:c,SH:SH};}
+
+  // precompute the whole loop deterministically, then play it back
+  function precompute(){ var Wl=[{m:[3.4,2.6],w:3.0},{m:[-3.8,1.2],w:0.22},{m:[0.6,-3.6],w:0.167}];
+    var rounds=[], seen={};
+    for(var r=0;r<30;r++){ var sw=swarm(Wl);
+      if(sw.share<QUORUM){ rounds.push({round:r, share:sw.share, X:sw.X, wells:Wl.slice(), halt:true}); break; }
+      var sh=shadow(Wl); var rec=!!seen[sh.name]; seen[sh.name]=true;
+      rounds.push({round:r, share:sw.share, X:sw.X, wells:Wl.slice(), name:sh.name, cen:sh.cen, SH:sh.SH, rec:rec, halt:false});
+      Wl=Wl.concat([{m:[sh.cen[0],sh.cen[1]], w:0.62}]);
+    }
+    return rounds; }
+  var LOOP=precompute(), idx=-1, playing=false, tmr=0;
+
+  var sx=function(wx){return W*0.5+wx*(W/26);}, sy=function(wy){return H*0.5-wy*(H/24);};
+  function drawState(){
+    ctx.clearRect(0,0,W,H);
+    // sparkline of consensus over rounds (top strip)
+    var chartH=54, base=chartH+6;
+    ctx.strokeStyle='rgba(154,123,208,.25)';ctx.lineWidth=1;
+    var qy=base - (QUORUM)*(chartH-8); ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(40,qy);ctx.lineTo(W-14,qy);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle='#7a6f85';ctx.font="9px 'JetBrains Mono',monospace";ctx.textAlign='left';ctx.fillText('quorum 50%',44,qy-3);ctx.fillText('consensus',44,14);
+    var shown = idx<0?0:idx+1;
+    for(var i=0;i<shown;i++){var rr=LOOP[i]; var x=40+(W-60)*(i/(Math.max(1,LOOP.length-1))); var y=base-(rr.share)*(chartH-8);
+      ctx.fillStyle=rr.halt?'#ff7a5c':(rr.share<0.6?'#e0a040':'#57c6c0'); ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fill();
+      if(i>0){var px=40+(W-60)*((i-1)/(Math.max(1,LOOP.length-1))),py=base-(LOOP[i-1].share)*(chartH-8);ctx.strokeStyle='rgba(199,182,204,.4)';ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);ctx.stroke();}
+    }
+    // current field (below the strip)
+    var cur = idx<0? {wells:LOOP[0].wells, X:null} : LOOP[idx];
+    var Wl = cur.wells;
+    for(var w=0;w<Wl.length;w++){var k=Wl[w],gx=sx(k.m[0]),gy=sy(k.m[1])+chartH*0.5,R=12+22*Math.min(2.0,k.w);
+      var isNew = w>=3; var gr=ctx.createRadialGradient(gx,gy,2,gx,gy,R);
+      gr.addColorStop(0, isNew?'rgba(183,158,230,0.30)':'rgba(224,160,64,0.20)');gr.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=gr;ctx.beginPath();ctx.arc(gx,gy,R,0,7);ctx.fill();
+      ctx.fillStyle=isNew?'#b79ee6':'#e0a040';ctx.beginPath();ctx.arc(gx,gy,2.5,0,7);ctx.fill();}
+    // agents + shadow of the current round
+    if(idx>=0){ var rr=LOOP[idx];
+      for(var a=0;a<rr.X.length;a++){var X=sx(rr.X[a][0]),Y=sy(rr.X[a][1])+chartH*0.5;
+        ctx.fillStyle='#08060a';ctx.strokeStyle=rr.halt?'#ff7a5c':'#e0a040';ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(X,Y,5,0,7);ctx.fill();ctx.stroke();}
+      if(!rr.halt && rr.SH){ for(var s=0;s<rr.SH.length;s++){var SX=sx(rr.SH[s][0]),SY=sy(rr.SH[s][1])+chartH*0.5;ctx.fillStyle='#b79ee6';ctx.beginPath();ctx.arc(SX,SY,2.4,0,7);ctx.fill();}
+        ctx.font="italic 600 16px 'Newsreader',serif";ctx.fillStyle='#b79ee6';ctx.textAlign='center';ctx.fillText(rr.name, sx(rr.cen[0]), sy(rr.cen[1])+chartH*0.5-14);}
+      if(rr.halt){ ctx.font="italic 600 20px 'Newsreader',serif";ctx.fillStyle='#ff7a5c';ctx.textAlign='center';ctx.fillText('no consensus — the loop halts', W/2, H/2+chartH*0.5);}
+    }
+  }
+  function setHUD(){ var rr = idx<0?null:LOOP[idx];
+    document.getElementById('h-round').textContent = idx<0?'—':idx;
+    document.getElementById('h-share').textContent = rr?Math.round(rr.share*100)+'%':'—';
+    document.getElementById('h-wells').textContent = rr?rr.wells.length:'3';
+    document.getElementById('h-name').textContent = (rr&&!rr.halt)?rr.name:(rr&&rr.halt?'—':'—');
+    var st=document.getElementById('h-state'); st.textContent = idx<0?'idle':(LOOP[idx].halt?'HALTED':(playing?'running':'paused')); st.className=LOOP[idx]&&LOOP[idx].halt?'no':'';
+  }
+  function logRound(rr){ var el=document.getElementById('log');
+    if(rr.halt){ el.innerHTML += '<div><span class="halt">round '+rr.round+': consensus '+Math.round(rr.share*100)+'% &lt; quorum &rarr; NO CONSENSUS &mdash; THE LOOP HALTS. the field ('+rr.wells.length+' wells) can no longer be agreed upon.</span></div>'; }
+    else { el.innerHTML += '<div><span class="r">round '+rr.round+':</span> consensus <span class="sh">'+Math.round(rr.share*100)+'%</span> &rarr; shadow names itself <span class="nm'+(rr.rec?' rec':'')+'">'+rr.name+'</span>'+(rr.rec?' <span class="r">(recurs)</span>':'')+' &rarr; planted as matter ('+(rr.wells.length+1)+' wells)</div>'; }
+    el.scrollTop=el.scrollHeight;
+  }
+  function stepOnce(){ if(idx>=LOOP.length-1){ playing=false; return; } idx++; logRound(LOOP[idx]); setHUD();
+    if(LOOP[idx].halt){ playing=false; document.getElementById('cap').innerHTML='<b style="color:var(--red-br)">the loop halted itself</b> at round '+idx+' &mdash; consensus fell below quorum. self-limiting: the dark it kept making crowded out agreement.'; }
+    else document.getElementById('cap').innerHTML='round '+idx+' &mdash; the shadow named itself <b style="color:var(--violet-br)">'+LOOP[idx].name+'</b>, now planted as new bright matter.';
+  }
+  function reset(){ idx=-1; playing=false; document.getElementById('log').innerHTML=''; document.getElementById('cap').innerHTML='the field starts with three wells and twelve agents. each round plants the shadow&rsquo;s name as new matter.'; setHUD(); }
+
+  var last=0;
+  function frame(ts){ drawState();
+    if(playing && ts-last>820){ last=ts; stepOnce(); }
+    requestAnimationFrame(frame); }
+  requestAnimationFrame(frame);
+  document.getElementById('b-play').addEventListener('click',function(e){ if(idx>=LOOP.length-1)reset(); playing=!playing; e.target.classList.toggle('on',playing); e.target.innerHTML=playing?'&#10073;&#10073; pause':'&#9654; run the loop'; setHUD(); });
+  document.getElementById('b-step').addEventListener('click',function(){ playing=false; document.getElementById('b-play').classList.remove('on'); document.getElementById('b-play').innerHTML='&#9654; run the loop'; stepOnce(); });
+  document.getElementById('b-reset').addEventListener('click',reset);
+  reset();
+})();
+</script>
+</body></html>
